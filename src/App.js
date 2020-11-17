@@ -8,6 +8,7 @@ import {
 import { Button } from '@material-ui/core';
 import SignInSide from './components/SignInSide.js';
 import SignUp from './components/SignUp.js';
+import Dashboard from './components/Dashboard.js';
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
       <Router>
       <Link to='/signup'><Button>Register</Button></Link>
       <Link to='/signin'><Button>Sign-In</Button></Link>
-      <Link to='/signin'><Button>Dashboard</Button></Link>
+      <Link to='/dashboard'><Button>Dashboard</Button></Link>
       
       <Switch>
         <Route path='/signin' component={SignInSide} />
         <Route path='/signup' component={SignUp} />
+        <Route path='/dashboard' component={Dashboard} />
       </Switch>
       </Router>
     </div>
