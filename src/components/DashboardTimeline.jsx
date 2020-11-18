@@ -3,6 +3,9 @@ import { Timeline, TimelineDot,
          TimelineContent } from '@material-ui/lab';
 import { Paper } from '@material-ui/core';
 
+//Will display timeline of saved gratitudes
+//Need to connect to backend
+
 export default function DashboardTimeline() {
     return (
         <Paper>

@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+//Nav bar for the user dashboard 
+//Will connect to backend and use react-router
+
 export default function DashboardNav() {
     const classes = useStyles();
     const preventDefault = (event) => event.preventDefault();

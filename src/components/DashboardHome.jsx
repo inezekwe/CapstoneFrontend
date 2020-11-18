@@ -4,6 +4,9 @@ import { Typography, Card, CardActions,
          CardContent, Paper, Grid, 
          TextField, Button } from '@material-ui/core';
 
+//DashboardHome shows the motivational quote of the day and
+//you can also write and save your gratitudes
+
 export default function DashboardHome() {
 
     const [quote, setQuote] = useState('');
