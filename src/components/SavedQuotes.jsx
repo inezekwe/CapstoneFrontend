@@ -10,8 +10,9 @@ export default function SavedQuotes() {
     const [quotes, setQuotes] = useState([]);
     
     useEffect(() => {
-        axios.get('/api/quotes')
+        axios.get('https://type.fit/api/quotes')
             .then(res => {
+                console.log(res);
                 setQuotes(res.data);
             })
             .catch(err => {
@@ -20,12 +21,12 @@ export default function SavedQuotes() {
     }, [])
 
     const q = [];
-    for(var i = 0; i < 5; i++) {
+    for(var i = 0; i < 3; i++) {
         q.push(
             <Grid item lg={8} xs={10}>
             <Card elevation={5} key={i}>
             <CardContent>
-                <Typography variant='h5'><blockquote>&ldquo;{quotes[i].q}&rdquo; &mdash;<footer>{quotes[i].a}</footer></blockquote></Typography>
+                <Typography variant='h5'><blockquote>&ldquo;{quotes[i].text}&rdquo; &mdash;<footer>{quotes[i].author}</footer></blockquote></Typography>
             </CardContent>
             <CardActions>
                 <Button color="primary" size="small">
@@ -38,7 +39,7 @@ export default function SavedQuotes() {
 
     return (
         <div>
-            <Grid   container spacing={4} direction="column" alignItems="center" justify="center" style={{ minHeight: '10vh' }}>
+            <Grid   container spacing={4} direction="column" alignItems="center" justify="center" style={{ minHeight: '80vh' }}>
                 {q}
             </Grid>
         </div>

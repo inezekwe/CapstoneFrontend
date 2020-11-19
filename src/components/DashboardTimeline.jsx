@@ -1,15 +1,19 @@
 import { Timeline, TimelineDot,
          TimelineItem, TimelineSeparator, TimelineConnector,
          TimelineContent } from '@material-ui/lab';
-import { Paper } from '@material-ui/core';
+import { Grid, Card, CardHeader, CardContent } from '@material-ui/core';
 
 //Will display timeline of saved gratitudes
 //Need to connect to backend
 
 export default function DashboardTimeline() {
     return (
-        <Paper>
-            <Timeline align="alternate">
+      <Grid   container spacing={4} direction="column" alignItems="center" justify="center" style={{ minHeight: '80vh' }}>
+        <Grid item lg={10}>
+        <Card>
+          <CardHeader title="Gratitudes Timeline" subheader="View a timeline of your past gratitudes" />
+          <CardContent>
+          <Timeline align="alternate">
       <TimelineItem>
         <TimelineSeparator>
           <TimelineDot />
@@ -38,6 +42,10 @@ export default function DashboardTimeline() {
         <TimelineContent>Repeat</TimelineContent>
       </TimelineItem>
     </Timeline>
-        </Paper>
+          </CardContent>
+        </Card>
+        </Grid>
+      </Grid>
+
     );
 }

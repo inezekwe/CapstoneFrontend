@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Typography, Card, CardActions, 
-         CardContent, Paper, Grid, 
-         TextField, Button } from '@material-ui/core';
+import { Typography, Card, CardHeader, CardActions, 
+         CardContent, Grid, 
+         TextField, Button, Input,
+         InputLabel } from '@material-ui/core';
 
 //DashboardHome shows the motivational quote of the day and
 //you can also write and save your gratitudes
@@ -43,7 +44,8 @@ export default function DashboardHome() {
             <Grid item lg={8} xs={10}>
                 <Card elevation={5}>
                     <CardContent>
-                        <Typography variant='h5'><blockquote>&ldquo;{quote}&rdquo; &mdash;<footer>{author}</footer></blockquote></Typography>
+                        <Typography variant='h5' color='textSecondary'>Quote of the Day</Typography>
+                        <Typography variant='h6'><blockquote>&ldquo;{quote}&rdquo; &mdash;<footer>{author}</footer></blockquote></Typography>
                     </CardContent>
                     <CardActions>
                         <Button color="primary" size="small" onClick={handleClick}>
@@ -53,23 +55,27 @@ export default function DashboardHome() {
                 </Card>
             </Grid>
             <Grid item lg={6} xs={8}>
-                <Paper elevation={5}>
+                <Card  elevation={5}>
+                    <CardHeader title="Give Gratitudes" subheader="Write what you're thankful for today" />
+                    <CardContent>
                     <form noValidate autoComplete="off">
-                        <TextField multiline rows={5} placeholder="Write your gratitudes here" variant='outlined' label="Gratitudes" />
-                        <input type="file" accept="image/*" id="uploadBtn" style={{display: 'none'}}/>
-                        <label htmlFor="uploadBtn">
-                        <Button variant="contained" color="primary" component="span">
-                            Upload
+                        <TextField fullWidth multiline rows={8} placeholder="Write your gratitudes here" variant='outlined' label="Gratitudes" />
+                        <Input type="file" accept="image/*" id="uploadBtn" style={{display: 'none'}}/>
+                        <InputLabel htmlFor="uploadBtn">
+                        <Button size="small" color="primary" component="span">
+                            Upload Image
                         </Button>
-                    </label>
-                    <input type="submit" id="submitBtn" style={{display: 'none'}}/>
-                    <label htmlFor="submitBtn">
-                        <Button variant="contained" color="primary" component="span">
+                    </InputLabel>
+                    <Input type="submit" id="submitBtn" style={{display: 'none'}}/>
+                    <InputLabel htmlFor="submitBtn">
+                        <Button size="small" color="primary" component="span">
                             Save
                         </Button>
-                    </label>
+                    </InputLabel>
                     </form>
-                </Paper>
+                    </CardContent>
+
+                </Card>
         </Grid>
       </Grid>
     );

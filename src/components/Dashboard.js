@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import DashboardNav from './DashboardNav.jsx';
 import DashboardHome from './DashboardHome.jsx';
 import DashboardTimeline from './DashboardTimeline.jsx';
@@ -9,7 +10,7 @@ const useStyles = makeStyles(() => ({
       flexGrow: 1,
     },
     background: {
-      height: 1000,
+      height: '100vh',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -19,6 +20,8 @@ const useStyles = makeStyles(() => ({
 
 export default function Dashboard() {
   const classes = useStyles();
+  
+  let match = useRouteMatch();
 
 
   return (
@@ -26,13 +29,19 @@ export default function Dashboard() {
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
       <DashboardNav />
+      <Switch >
+        <Route exact path={match.path}>
+          <DashboardHome />
+        </Route>
+        <Route path={`${match.path}/timeline`}>
+          <DashboardTimeline />
+        </Route>
+        <Route path={`${match.path}/saved_quotes`}>
+          <SavedQuotes />
+        </Route>
 
-      <DashboardHome />
+      </Switch>
 
-      <SavedQuotes />
-
-
-      <DashboardTimeline />
     </div>
   );
 }
